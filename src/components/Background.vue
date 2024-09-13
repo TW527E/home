@@ -17,7 +17,7 @@
         :href="bgUrl"
         target="_blank"
       >
-        下载壁纸
+        下載背景
       </a>
     </Transition>
   </div>
@@ -39,7 +39,7 @@ const bgRandom = Math.floor(Math.random() * 10 + 1);
 // 更换壁纸链接
 const changeBg = (type) => {
   if (type == 0) {
-    bgUrl.value = `/images/background${bgRandom}.jpg`;
+    bgUrl.value = `/images/background${bgRandom}.avif`;
   } else if (type == 1) {
     bgUrl.value = "https://api.dujin.org/bing/1920.php";
   } else if (type == 2) {
@@ -61,16 +61,16 @@ const imgLoadComplete = () => {
 
 // 图片动画完成
 const imgAnimationEnd = () => {
-  console.log("壁纸加载且动画完成");
+  console.log("完成背景載入且動畫完成");
   // 加载完成事件
   emit("loadComplete");
 };
 
 // 图片显示失败
 const imgLoadError = () => {
-  console.error("壁纸加载失败：", bgUrl.value);
+  console.error("背景載入失敗：", bgUrl.value);
   ElMessage({
-    message: "壁纸加载失败，已临时切换回默认",
+    message: "背景載入失敗，已臨時切換回預設背景",
     icon: h(Error, {
       theme: "filled",
       fill: "#efefef",

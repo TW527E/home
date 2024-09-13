@@ -93,7 +93,7 @@ onMounted(() => {
         store.musicIsOk = true;
         // 生成歌单
         playList.value = res;
-        console.log("音乐加载完成");
+        console.log("音樂載入完成");
         console.log(playList.value);
         console.log(playIndex.value, playList.value.length, props.volume);
       });
@@ -101,7 +101,7 @@ onMounted(() => {
       console.error(err);
       store.musicIsOk = false;
       ElMessage({
-        message: "播放器加载失败",
+        message: "播放器載入失敗",
         grouping: true,
         icon: h(PlayWrong, {
           theme: "filled",
@@ -144,9 +144,9 @@ const onTimeUp = () => {
   }
   let lrc = lyrics[lyricIndex][1];
   if (lrc === "Loading") {
-    lrc = "歌词加载中";
+    lrc = "歌詞載入中";
   } else if (lrc === "Not available") {
-    lrc = "歌词加载失败";
+    lrc = "歌詞載入失敗";
   }
   store.setPlayerLrc(lrc);
 };
@@ -178,9 +178,9 @@ const toggleList = () => {
 const loadMusicError = () => {
   let notice = "";
   if (playList.value.length > 1) {
-    notice = "播放歌曲出现错误，播放器将在 2s 后进行下一首";
+    notice = "播放歌曲出現錯誤，播放器將在 2 秒後進行下一首";
   } else {
-    notice = "播放歌曲出现错误";
+    notice = "播放歌曲出現錯誤";
   }
   ElMessage({
     message: notice,
@@ -192,7 +192,7 @@ const loadMusicError = () => {
     }),
   });
   console.error(
-    "播放歌曲: " + player.value.aplayer.audio[player.value.aplayer.index].name + " 出现错误",
+    "播放歌曲: " + player.value.aplayer.audio[player.value.aplayer.index].name + " 出現錯誤",
   );
 };
 
@@ -204,7 +204,7 @@ defineExpose({ playToggle, changeVolume, changeSong, toggleList });
 .aplayer {
   width: 80%;
   border-radius: 6px;
-  font-family: "HarmonyOS_Regular", sans-serif !important;
+  font-family: "MiSansTC", "MiSans", "MiSansLatin", sans-serif !important;
   :deep(.aplayer-body) {
     background-color: transparent;
     .aplayer-pic {

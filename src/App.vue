@@ -1,7 +1,7 @@
 <template>
-  <!-- 加载 -->
+  <!-- 載入 -->
   <Loading />
-  <!-- 壁纸 -->
+  <!-- 壁紙 -->
   <Background @loadComplete="loadComplete" />
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
@@ -16,7 +16,7 @@
           <MoreSet />
         </section>
       </div>
-      <!-- 移动端菜单按钮 -->
+      <!-- 移動端菜單按鈕 -->
       <Icon
         class="menu"
         size="24"
@@ -25,7 +25,7 @@
       >
         <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
       </Icon>
-      <!-- 页脚 -->
+      <!-- 頁尾 -->
       <Transition name="fade" mode="out-in">
         <Footer class="f-ter" v-show="!store.backgroundShow && !store.setOpenState" />
       </Transition>
@@ -50,22 +50,22 @@ import config from "@/../package.json";
 
 const store = mainStore();
 
-// 页面宽度
+// 頁面寬度
 const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
 };
 
-// 加载完成事件
+// 載入完成事件
 const loadComplete = () => {
   nextTick(() => {
-    // 欢迎提示
+    // 歡迎提示
     helloInit();
     // 默哀模式
     checkDays();
   });
 };
 
-// 监听宽度变化
+// 監聽寬度變化
 watch(
   () => store.innerWidth,
   (value) => {
@@ -77,39 +77,39 @@ watch(
 );
 
 onMounted(() => {
-  // 自定义鼠标
+  // 自定義滑鼠
   cursorInit();
 
-  // 屏蔽右键
+  // 遮蔽右鍵
   document.oncontextmenu = () => {
     ElMessage({
-      message: "为了浏览体验，本站禁用右键",
+      message: "為了您的瀏覽體驗，本站已禁用右鍵",
       grouping: true,
       duration: 2000,
     });
     return false;
   };
 
-  // 鼠标中键事件
+  // 滑鼠中鍵事件
   window.addEventListener("mousedown", (event) => {
     if (event.button == 1) {
       store.backgroundShow = !store.backgroundShow;
       ElMessage({
-        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
+        message: `已${store.backgroundShow ? "開啟" : "退出"}壁紙展示狀態`,
         grouping: true,
       });
     }
   });
 
-  // 监听当前页面宽度
+  // 監聽目前頁面寬度
   getWidth();
   window.addEventListener("resize", getWidth);
 
-  // 控制台输出
+  // 控制檯輸出
   const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
   const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
   const styleContent = "color: rgb(30,152,255);";
-  const title1 = "無名の主页";
+  const title1 = "MineProfile";
   const title2 = `
  _____ __  __  _______     ____     __
 |_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
@@ -117,7 +117,7 @@ onMounted(() => {
   | | | |\\/| |\\___ \\  \\   /    \\   /
  _| |_| |  | |____) |  | |      | |
 |_____|_|  |_|_____/   |_|      |_|`;
-  const content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
+  const content = `\n\n版本: ${config.version}\n主頁: ${config.home}\nGithub: ${config.github}`;
   console.info(`%c${title1} %c${title2} %c${content}`, styleTitle1, styleTitle2, styleContent);
 });
 

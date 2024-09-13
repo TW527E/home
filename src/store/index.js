@@ -3,49 +3,49 @@ import { defineStore } from "pinia";
 export const mainStore = defineStore("main", {
   state: () => {
     return {
-      imgLoadStatus: false, // 壁纸加载状态
-      innerWidth: null, // 当前窗口宽度
-      coverType: "0", // 壁纸种类
-      siteStartShow: false, // 建站日期显示
-      musicClick: false, // 音乐链接是否跳转
-      musicIsOk: false, // 音乐是否加载完成
-      musicVolume: 0, // 音乐音量;
-      musicOpenState: false, // 音乐面板开启状态
-      backgroundShow: false, // 壁纸展示状态
-      boxOpenState: false, // 盒子开启状态
-      mobileOpenState: false, // 移动端开启状态
-      mobileFuncState: false, // 移动端功能区开启状态
-      setOpenState: false, // 设置页面开启状态
-      playerState: false, // 当前播放状态
-      playerTitle: null, // 当前播放歌曲名
-      playerArtist: null, // 当前播放歌手名
-      playerLrc: "歌词加载中", // 当前播放歌词
-      playerLrcShow: true, // 是否显示底栏歌词
-      footerBlur: true, // 底栏模糊
-      playerAutoplay: false, // 是否自动播放
-      playerLoop: "all", // 循环播放 "all", "one", "none"
-      playerOrder: "list", // 循环顺序 "list", "random"
+      imgLoadStatus: false, // 壁紙載入狀態
+      innerWidth: null, // 目前視窗寬度
+      coverType: "0", // 壁紙種類
+      siteStartShow: true, // 建站日期顯示
+      musicClick: false, // 音樂鏈接是否跳轉
+      musicIsOk: false, // 音樂是否載入完成
+      musicVolume: 0.18, // 音樂音量;
+      musicOpenState: false, // 音樂面板開啟狀態
+      backgroundShow: false, // 壁紙展示狀態
+      boxOpenState: false, // 盒子開啟狀態
+      mobileOpenState: false, // 移動端開啟狀態
+      mobileFuncState: false, // 移動端功能區開啟狀態
+      setOpenState: false, // 設定頁面開啟狀態
+      playerState: false, // 目前播放狀態
+      playerTitle: null, // 目前播放歌曲名
+      playerArtist: null, // 目前播放歌手名
+      playerLrc: "歌詞載入中", // 目前播放歌詞
+      playerLrcShow: true, // 是否顯示底欄歌詞
+      footerBlur: true, // 底欄模糊
+      playerAutoplay: true, // 是否自動播放
+      playerLoop: "all", // 循環播放 "all", "one", "none"
+      playerOrder: "random", // 循環順序 "list", "random"
     };
   },
   getters: {
-    // 获取歌词
+    // 獲取歌詞
     getPlayerLrc(state) {
       return state.playerLrc;
     },
-    // 获取歌曲信息
+    // 獲取歌曲資訊
     getPlayerData(state) {
       return {
         name: state.playerTitle,
         artist: state.playerArtist,
       };
     },
-    // 获取页面宽度
+    // 獲取頁面寬度
     getInnerWidth(state) {
       return state.innerWidth;
     },
   },
   actions: {
-    // 更改当前页面宽度
+    // 更改當前頁面寬度
     setInnerWidth(value) {
       this.innerWidth = value;
       if (value >= 720) {
@@ -53,7 +53,7 @@ export const mainStore = defineStore("main", {
         this.mobileFuncState = false;
       }
     },
-    // 更改播放状态
+    // 更改播放狀態
     setPlayerState(value) {
       if (value) {
         this.playerState = false;
@@ -61,16 +61,16 @@ export const mainStore = defineStore("main", {
         this.playerState = true;
       }
     },
-    // 更改歌词
+    // 更改歌詞
     setPlayerLrc(value) {
       this.playerLrc = value;
     },
-    // 更改歌曲数据
+    // 更改歌曲數據
     setPlayerData(title, artist) {
       this.playerTitle = title;
       this.playerArtist = artist;
     },
-    // 更改壁纸加载状态
+    // 更改壁紙載入狀態
     setImgLoadStatus(value) {
       this.imgLoadStatus = value;
     },

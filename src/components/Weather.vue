@@ -5,15 +5,15 @@
     <span>{{ weatherData.weather.temperature }}℃</span>
     <span class="sm-hidden">
       &nbsp;{{
-        weatherData.weather.winddirection?.endsWith("风")
+        weatherData.weather.winddirection?.endsWith("風")
           ? weatherData.weather.winddirection
-          : weatherData.weather.winddirection + "风"
+          : weatherData.weather.winddirection + "風"
       }}&nbsp;
     </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
   </div>
   <div class="weather" v-else>
-    <span>天气数据获取失败</span>
+    <span>天氣資料取得失敗</span>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ const getTemperature = (min, max) => {
     const average = (Number(min) + Number(max)) / 2;
     return Math.round(average);
   } catch (error) {
-    console.error("计算温度出现错误：", error);
+    console.error("計算溫度出現錯誤：", error);
     return "NaN";
   }
 };
@@ -55,12 +55,12 @@ const getWeatherData = async () => {
   try {
     // 获取地理位置信息
     if (!mainKey) {
-      console.log("未配置，使用备用天气接口");
+      console.log("未配置，使用備用天氣 API");
       const result = await getOtherWeather();
       console.log(result);
       const data = result.result;
       weatherData.adCode = {
-        city: data.city.City || "未知地区",
+        city: data.city.City || "未知地區",
         // adcode: data.city.cityId,
       };
       weatherData.weather = {
@@ -74,7 +74,7 @@ const getWeatherData = async () => {
       const adCode = await getAdcode(mainKey);
       console.log(adCode);
       if (adCode.infocode !== "10000") {
-        throw "地区查询失败";
+        throw "地區查詢失敗";
       }
       weatherData.adCode = {
         city: adCode.city,
@@ -90,8 +90,8 @@ const getWeatherData = async () => {
       };
     }
   } catch (error) {
-    console.error("天气信息获取失败:" + error);
-    onError("天气信息获取失败");
+    console.error("天氣資料取得失敗:" + error);
+    onError("天氣資料取得失敗");
   }
 };
 

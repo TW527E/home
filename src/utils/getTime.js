@@ -2,7 +2,7 @@ import { h } from "vue";
 import { SpaCandle } from "@icon-park/vue-next";
 import dayjs from "dayjs";
 
-// 时钟
+// 時鐘
 export const getCurrentTime = () => {
   let time = new Date();
   let year = time.getFullYear();
@@ -24,34 +24,34 @@ export const getCurrentTime = () => {
   return currentTime;
 };
 
-// 时光胶囊
+// 時光膠囊
 export const getTimeCapsule = () => {
   const now = dayjs();
   const dayText = {
     day: "今日",
-    week: "本周",
+    week: "本週",
     month: "本月",
     year: "本年",
   };
   /**
-   * 计算时间差的函数
-   * @param {String} unit 时间单位，可以是 'day', 'week', 'month', 'year'
+   * 計算時間差的函式
+   * @param {String} unit 時間單位，可以是 'day', 'week', 'month', 'year'
    */
   const getDifference = (unit) => {
-    // 获取当前时间单位的开始时间
+    // 獲取目前時間單位的開始時間
     const start = now.startOf(unit);
-    // 获取当前时间单位的结束时间
+    // 獲取目前時間單位的結束時間
     const end = now.endOf(unit);
-    // 计算总的天数或小时数
+    // 計算總的天數或小時數
     const total = end.diff(start, unit === "day" ? "hour" : "day") + 1;
-    // 计算已经过去的天数或小时数
+    // 計算已經過去的天數或小時數
     let passed = now.diff(start, unit === "day" ? "hour" : "day");
     if (unit === "week") {
       passed = (passed + 6) % 7;
     }
     const remaining = total - passed;
     const percentage = (passed / total) * 100;
-    // 返回数据
+    // 返回數據
     return {
       name: dayText[unit],
       total: total,
@@ -68,7 +68,7 @@ export const getTimeCapsule = () => {
   };
 };
 
-// 欢迎提示
+// 歡迎提示
 export const helloInit = () => {
   const hour = new Date().getHours();
   let hello = null;
@@ -91,17 +91,17 @@ export const helloInit = () => {
   }
   ElMessage({
     dangerouslyUseHTMLString: true,
-    message: `<strong>${hello}</strong> 欢迎来到我的主页`,
+    message: `<strong>${hello}</strong> 歡迎來到我的主頁`,
   });
 };
 
 // 默哀模式
 const anniversaries = {
-  4.4: "清明节",
-  5.12: "汶川大地震纪念日",
-  7.7: "中国人民抗日战争纪念日",
-  9.18: "九·一八事变纪念日",
-  12.13: "南京大屠杀死难者国家公祭日",
+  4.4: "清明節",
+  5.12: "汶川大地震紀念日",
+  7.7: "中國人民抗日戰爭紀念日",
+  9.18: "九·一八事變紀念日",
+  12.13: "南京大屠殺死難者國家公祭日",
 };
 export const checkDays = () => {
   const myDate = new Date();
@@ -121,7 +121,7 @@ export const checkDays = () => {
   }
 };
 
-// 建站日期统计
+// 建站日期統計
 export const siteDateStatistics = (startDate) => {
   const currentDate = new Date();
   const differenceInTime = currentDate.getTime() - startDate.getTime();
@@ -129,14 +129,14 @@ export const siteDateStatistics = (startDate) => {
   const differenceInMonths = differenceInDays / 30;
   const differenceInYears = differenceInMonths / 12;
   if (differenceInYears >= 1) {
-    return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(
+    return `本站已經茍活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(
       differenceInMonths % 12,
     )} 月 ${Math.round(differenceInDays % 30)} 天`;
   } else if (differenceInMonths >= 1) {
-    return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(
+    return `本站已經茍活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(
       differenceInDays % 30,
     )} 天`;
   } else {
-    return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;
+    return `本站已經茍活了 ${Math.round(differenceInDays)} 天`;
   }
 };
