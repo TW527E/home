@@ -1,16 +1,16 @@
 <template>
   <div class="weather" v-if="weatherData.adCode.city && weatherData.weather.weather">
-    <span>{{ weatherData.adCode.city }}&nbsp;</span>
-    <span>{{ weatherData.weather.weather }}&nbsp;</span>
+    <span>{{ toTraditional(weatherData.adCode.city) }}&nbsp;</span>
+    <span>{{ toTraditional(weatherData.weather.weather) }}&nbsp;</span>
     <span>{{ weatherData.weather.temperature }}℃</span>
     <span class="sm-hidden">
       &nbsp;{{
-        weatherData.weather.winddirection?.endsWith("風")
+        toTraditional(weatherData.weather.winddirection?.endsWith("风")
           ? weatherData.weather.winddirection
-          : weatherData.weather.winddirection + "風"
+          : weatherData.weather.winddirection + "風")
       }}&nbsp;
     </span>
-    <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
+    <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;級</span>
   </div>
   <div class="weather" v-else>
     <span>天氣資料取得失敗</span>
@@ -111,4 +111,18 @@ onMounted(() => {
   // 调用获取天气
   getWeatherData();
 });
+
+// 簡體轉繁體函數
+const toTraditional = (text) => {
+  const simplifiedToTraditional = {
+    '风': '風', '云': '雲', '气': '氣', '码': '碼', '东': '東', '南': '南',
+    '西': '西', '北': '北', '东北': '東北', '东南': '東南', '西南': '西南',
+    '西北': '西北', '晴': '晴', '阴': '陰', '雨': '雨', '雪': '雪', '雾': '霧',
+    '霾': '霾', '沙尘': '沙塵', '雷': '雷', '阵': '陣', '级': '級', '市': '市',
+    '区': '區', '县': '縣', '省': '省', '自治区': '自治區', '特别行政区': '特別行政區'
+    // 可以根據需要添加更多轉換
+  };
+  
+  return text.split('').map(char => simplifiedToTraditional[char] || char).join('');
+};
 </script>

@@ -27,10 +27,15 @@
               :style="index < 3 ? 'margin-bottom: 20px' : null"
               @click="jumpLink(item)"
             >
-              <Icon size="26">
-                <component :is="siteIcon[item.icon]" />
-              </Icon>
-              <span class="name text-hidden">{{ item.name }}</span>
+              <div class="item-content">
+                <div class="icon-name">
+                  <Icon size="26">
+                    <component :is="siteIcon[item.icon]" />
+                  </Icon>
+                  <span class="name">{{ item.name }}</span>
+                </div>
+                <span v-if="item.description" class="description">{{ item.description }}</span>
+              </div>
             </div>
           </el-col>
         </el-row>
@@ -135,9 +140,8 @@ onMounted(() => {
       width: 100%;
       display: flex;
       align-items: center;
-      flex-direction: row;
       justify-content: center;
-      padding: 0 10px;
+      padding: 10px;
       animation: fade 0.5s;
 
       &:hover {
@@ -150,33 +154,69 @@ onMounted(() => {
         transform: scale(1);
       }
 
-      .name, .bottom_name {
-        font-size: 1.1rem;
-        margin-left: 8px;
+      .item-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
       }
+
+      .icon-name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .name {
+        font-size: 1.1rem;
+        margin-top: 8px;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 5px;
+        box-sizing: border-box;
+      }
+
+      .description {
+        font-size: 0.8rem;
+        color: #ccc;
+        text-align: center;
+        margin-top: 5px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 5px;
+        box-sizing: border-box;
+      }
+
       @media (min-width: 720px) and (max-width: 820px) {
-        .name {
-          display: none;
-        }
-        .bottom_name {
+        .name, .description {
           display: none;
         }
       }
 
       @media (max-width: 720px) {
-        height: 80px;
+        height: 90px;
       }
+
       @media (max-width: 460px) {
-        flex-direction: column;
         .name {
-          font-size: 1rem;
-          margin-left: 0;
-          margin-top: 8px;
+          font-size: 0.9rem;
+        }
+        .description {
+          font-size: 0.7rem;
         }
       }
     }
     @media (max-width: 720px) {
-      height: 180px;
+      height: 200px;
     }
   }
 }

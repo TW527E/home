@@ -13,7 +13,7 @@
             {{ tag === "day" ? "小時" : "天" }}
           </span>
           <span class="remaining">
-            剩下&nbsp;{{ item.remaining }}&nbsp;{{ tag === "day" ? "小时" : "天" }}
+            剩下&nbsp;{{ item.remaining }}&nbsp;{{ tag === "day" ? "小時" : "天" }}
           </span>
         </div>
         <el-progress :text-inside="true" :stroke-width="20" :percentage="parseFloat(item.percentage)" />

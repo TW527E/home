@@ -23,7 +23,7 @@
         </Transition>
         <Icon size="16">
           <QuoteRight />
-        </Icon>
+        </Icon>``
       </div>
     </div>
   </div>
@@ -98,6 +98,11 @@ watch(
     .logo-img {
       border-radius: 50%;
       width: 120px;
+      transition: transform 0.6s ease;
+
+      &:hover {
+        transform: rotate(360deg);
+      }
     }
     .name {
       width: 100%;

@@ -1,27 +1,32 @@
 [
   {
     "icon": "Blog",
-    "name": "部落格 / 博客",
+    "name": "MineBlog",
+    "description": "部落格 / 博客",
     "link": "https://blog.tw527e.eu.org/"
   },
   {
+    "icon": "LaptopCode",
+    "name": "MineStatus",
+    "description": "網站上線狀態",
+    "link": "https://status.tw527e.eu.org/"
+  },
+  {
     "icon": "Cloud",
-    "name": "Alist",
+    "name": "MineDrive - Alist",
+    "description": "",
     "link": "https://alist.tw527e.eu.org/"
   },
   {
     "icon": "Cloud",
-    "name": "OM OD直鏈版",
+    "name": "MineDrive - OM",
+    "description": "OneDrive 直鏈版",
     "link": "https://om.tw527e.eu.org/"
   },
   {
     "icon": "Cloud",
-    "name": "OM CF代理版",
+    "name": "MineDrive - OM",
+    "description": "CloudFlare 代理版",
     "link": "https://om-cf.tw527e.eu.org/"
-  },
-  {
-    "icon": "LaptopCode",
-    "name": "伺服器上線狀態",
-    "link": "https://status.tw527e.eu.org/"
   }
 ]
