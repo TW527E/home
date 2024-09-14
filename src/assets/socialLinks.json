@@ -1,37 +1,37 @@
 [
   {
     "name": "Github",
-    "icon": "/images/icon/github.png",
+    "icon": "/images/icon/github.avif",
     "tip": "guthib.com",
     "url": "https://github.com/TW527E"
   },
   {
     "name": "BiliBili",
-    "icon": "/images/icon/bilibili.png",
+    "icon": "/images/icon/bilibili.avif",
     "tip": "(゜-゜)つロ 乾杯 ！~",
     "url": "https://space.bilibili.com/453006174"
   },
   {
     "name": "QQ",
-    "icon": "/images/icon/qq.png",
+    "icon": "/images/icon/qq.avif",
     "tip": "請問有甚麼事嗎？～",
     "url": "https://res.abeim.cn/api/qq/?qq=919251156"
   },
   {
     "name": "Email",
-    "icon": "/images/icon/email.png",
+    "icon": "/images/icon/email.avif",
     "tip": "來封 Email～",
     "url": "mailto:iam@tw527e.eu.org"
   },
   {
     "name": "Twitter / X",
-    "icon": "/images/icon/twitter.png",
+    "icon": "/images/icon/twitter.avif",
     "tip": "沒有色情內容哈www",
     "url": "https://twitter.com/TW527E"
   },
   {
     "name": "Telegram",
-    "icon": "/images/icon/telegram.png",
+    "icon": "/images/icon/telegram.avif",
     "tip": "看甚麼！快來啊！",
     "url": "https://t.me/tw527e"
   }
