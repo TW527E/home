@@ -97,11 +97,8 @@ export const helloInit = () => {
 
 // 默哀模式
 const anniversaries = {
+  2.28: "和平紀念日",
   4.4: "清明節",
-  5.12: "汶川大地震紀念日",
-  7.7: "中國人民抗日戰爭紀念日",
-  9.18: "九·一八事變紀念日",
-  12.13: "南京大屠殺死難者國家公祭日",
 };
 export const checkDays = () => {
   const myDate = new Date();
